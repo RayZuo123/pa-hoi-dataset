@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="PA-HOI Dataset.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PA-HOI: A Physics-Aware Human and Object Interaction Dataset</title>
+  <link rel="icon" type="image/png" href="./static/favicon.png">
+
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">PA-HOI Dataset:<br>A Physics-Aware Human and Object Interaction Dataset</h1>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="https://drive.google.com/file/d/1EAsAewAoSMwf0iWgCjcBDRrnKfdnLFvG/view?usp=drive_link"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Dataset</span>
+                  </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+          The Human-Object Interaction (HOI) task explores the dynamic interactions between humans and objects in physical environments, providing essential biomechanical and cognitive-behavioral foundations for fields such as robotics, virtual reality, and human-computer interaction. However, existing HOI data sets focus on details of hand grasping or object grasping preferences, often neglecting the influence of physical properties of objects on human long-term motion. To bridge this gap, we introduce the PA-HOI Mocap dataset—the first dataset that highlights the impact of objects’ physical attributes on human motion dynamics, including human posture, moving velocity, and other motion characteristics. The dataset comprises 562 motion sequences of human-object interactions, with each sequence performed by subjects of different genders interacting with 35 3D objects that vary in size, shape, and weight. This dataset stands out by significantly extending the scope of existing ones for understanding how the physical attributes of different objects influence human posture, speed, motion scale, and interacting strategies. We further demonstrate the applicability of the PA-HOI dataset by integrating it with existing motion generation methods, validating its capacity to transfer realistic physical awareness.
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Overview</h2>
+  </div>
+</section>
+<figure style="width:80%; margin: 0 auto;">
+  <img src="./static/pipeline.png" alt="Dataset pipeline" style="width:100%;">
+  <figcaption style="margin-top: 10px; text-align: left;">
+    <strong>The overview of our dataset collection and post-processing. </strong> We adopt a unified textual template integrated with a predefined set of annotation keywords to describe HOI actions, and employ LLMs to augment the prompt for each sequence. During the motion data acquisition phase, subjects first calibrate while wearing motion capture suits, and objects require inertial sensor bias correction before performing corresponding interactive actions described in the prompts. The motion data is then processed to fit SMPL-X sequences.
+  </figcaption>
+</figure>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Dataset Analysis</h2>
+  </div>
+</section>
+<figure style="width:80%; margin: 0 auto;">
+  <img src="./static/data_analysis.png" alt="Dataset Analysis" style="width:100%;">
+  <figcaption style="margin-top: 10px; text-align: left;">
+    <strong>The dataset analysis.</strong> (a) and (b) illustrate the proportional distributions of various motions and motion paths within the interaction sequences, respectively. (c) presents the changes in the number of textual descriptions before and after augmentation with different action prompts. (d) reports the average number of frames in interaction sequences involving different actions and objects of varying weights.
+            </figcaption>
+  </figcaption>
+</figure>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- 标题 -->
+    <div class="columns is-centered">
+      <div class="column has-text-centered">
+        <h2 class="title is-4">Behind The Scenes</h2>
+      </div>
+      <div class="column has-text-centered">
+        <h2 class="title is-4">Rendering Results</h2>
+      </div>
+    </div>
+
+    <!-- 视频组 2 -->
+    <div class="columns is-centered">
+      <div class="column">
+        <video controls muted playsinline style="height: 300px; display: block; margin: 0 auto;">
+          <source src="./Videos/yogaball_straight.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="column">
+        <video controls muted playsinline style="height: 300px; display: block; margin: 0 auto;">
+          <source src="./Videos/render_results.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+
+    <div class="columns is-centered">
+      <div class="column">
+        <p class="has-text-left" style="font-family: 'Comic Sans MS', cursive;">
+          <strong>Prompt:</strong> "A person begins going forward while holding a yoga ball, which is a large and medium-weight sphere, with both hands wrapped around its surface, then places it on the table."
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Application -->
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3 has-text-centered">Application</h2>
+        <div class="content">
+          
+          <!-- Titles Row -->
+          <div class="columns is-multiline is-centered has-text-centered">
+            <div class="column is-one-quarter">
+              <p><strong>MDM</strong></p>
+            </div>
+            <div class="column is-one-quarter">
+              <p><strong>MDM*</strong></p>
+            </div>
+            <div class="column is-one-quarter">
+              <p><strong>StableMoFusion</strong></p>
+            </div>
+            <div class="column is-one-quarter">
+              <p><strong>StableMoFusion*</strong></p>
+            </div>
+          </div>
+
+          <!-- Row 1 -->
+          <div class="columns is-multiline is-centered">
+            <div class="column is-one-quarter has-text-centered">
+              <video src="./videos_exp/barbell_mdm.mp4" controls width="100%"></video>
+            </div>
+            <div class="column is-one-quarter has-text-centered">
+              <video src="./videos_exp/barbell_mdmm.mp4" controls width="100%"></video>
+            </div>
+            <div class="column is-one-quarter has-text-centered">
+              <video src="./videos_exp/barbell_s.mp4" controls width="100%"></video>
+            </div>
+            <div class="column is-one-quarter has-text-centered">
+              <video src="./videos_exp/barbell_ss.mp4" controls width="100%"></video>
+            </div>
+          </div>
+          <p class="has-text-left" style="font-family: 'Comic Sans MS', cursive;"> 
+            "A person picks up a barbell, which is a large and heavy cylinder, from the ground by grabbing it through two hands, palms hugging its barbell bar, then goes forward, and finally places it on the table."
+          </p>
+
+          <!-- Row 2 -->
+          <div class="columns is-multiline is-centered">
+            <div class="column is-one-quarter has-text-centered">
+              <video src="./videos_exp/push_mdm.mp4" controls width="100%"></video>
+            </div>
+            <div class="column is-one-quarter has-text-centered">
+              <video src="./videos_exp/push_mdmm.mp4" controls width="100%"></video>
+            </div>
+            <div class="column is-one-quarter has-text-centered">
+              <video src="./videos_exp/push_s.mp4" controls width="100%"></video>
+            </div>
+            <div class="column is-one-quarter has-text-centered">
+              <video src="./videos_exp/push_ss.mp4" controls width="100%"></video>
+            </div>
+          </div>
+          <p class="has-text-left" style="font-family: 'Comic Sans MS', cursive;">
+            "A person pushes a large box, which is a large and heavy cuboid, straight by making contact with its side."
+          </p>
+
+          <!-- Row 3 -->
+          <div class="columns is-multiline is-centered">
+            <div class="column is-one-quarter has-text-centered">
+              <video src="./videos_exp/bottle_mdm.mp4" controls width="100%"></video>
+            </div>
+            <div class="column is-one-quarter has-text-centered">
+              <video src="./videos_exp/bottle_mdmm.mp4" controls width="100%"></video>
+            </div>
+            <div class="column is-one-quarter has-text-centered">
+              <video src="./videos_exp/bottle_s.mp4" controls width="100%"></video>
+            </div>
+            <div class="column is-one-quarter has-text-centered">
+              <video src="./videos_exp/bottle_ss.mp4" controls width="100%"></video>
+            </div>
+          </div>
+          <p class="has-text-left" style="font-family: 'Comic Sans MS', cursive;">
+            "A person picks up a small bottle, which is a small and medium weight cylinder, from the ground by grabbing it using the left hand, palm wrapped around its side, then holds position, and finally places it on the table."
+          </p>
+
+        </div>
+      </div>
+    </div>
+    <!--/ Application -->
+  </div>
+</section>
+
+
+
+
+
+    
+<footer class="footer" style="background-color: #f5f5f5; padding: 2rem 1rem;">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link" href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content has-text-centered">
+          <p>
+            This website is licensed under a 
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+              Creative Commons Attribution-ShareAlike 4.0 International License
+            </a>.
+          </p>
+          <p>
+            This means you are free to borrow the 
+            <a href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+</body>
+</html>
